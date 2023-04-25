@@ -9,35 +9,33 @@ import {
   navbarIconsContainer,
   navbarLogoContainer,
   navbarLogoLink,
+  navbarPhoneLink,
 } from "./styles";
 
 const Navbar = () => {
   const { navbarConfig } = useContext(LayoutContext);
   return (
     <nav css={(theme) => navBarStyles(theme)}>
+      <div></div>
       <div css={navbarLogoContainer}>
         <Link css={(theme) => navbarLogoLink(theme)} href="/">
           <Image
-            src="/assets/images/logo.png"
-            alt="Valeenchy logo"
-            width="100"
-            height="100"
+            src="/assets/images/logo1.png"
+            alt="Rise Logo"
+            width="105"
+            height="56"
           />
         </Link>
+        <NavbarItems config={navbarConfig.navList} />
       </div>
-      <NavbarItems config={navbarConfig.navList} />
       <div css={navbarIconsContainer}>
+        <Link css={(theme) => navbarPhoneLink(theme)} href="tel:1800 547 77 999">
+          1800 547 77 999
+        </Link>
         <Image
           src="/icons/searchIcon.svg"
           alt="Search icon"
           width="55"
-          height="55"
-          css={(theme) => navbarIcon(theme)}
-        />
-        <Image
-          src="/icons/cart.svg"
-          alt="Empty cart"
-          width="51"
           height="55"
           css={(theme) => navbarIcon(theme)}
         />

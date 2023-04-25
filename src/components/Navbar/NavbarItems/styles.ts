@@ -6,5 +6,6 @@ export const navListContainer = css`
   align-items: center;
   height: 100%;
   list-style-type: none;
+  font-weight: 700;
   label: nav-list-container;
 `;

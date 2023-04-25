@@ -13,6 +13,9 @@ export const rgba = (themeColor: string, opacity: number) => (theme?: any) => {
 
 export const BASE_COLORS = {
   // Project Colors
+  border: "#eeeff1",
+  footerBG: "#f2f5fa",
+  footerText: "#3a4b55",
 
   // Black/White
   white: "#FFF",
@@ -178,9 +181,9 @@ export const defaultTheme = {
   maxWidths: [480, "96.875%", 1500], // Mobile, Tablet, Desktop
   space: [0, 8, 16, 24, 32, 40, 48, 56, 64],
   fontWeights: {
-    ultraLight: "300",
-    light: "400",
-    normal: "500",
+    ultraLight: "400",
+    light: "500",
+    normal: "600",
     bold: "700",
     extraBold: "900",
   },

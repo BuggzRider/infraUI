@@ -1,8 +1,5 @@
-import {
-  NavbarItemColumnListTypes,
-  NavbarItemListTypes,
-  NavbarItemTypes,
-} from "config";
+import { NavbarItemColumnListTypes } from "config";
+import { ReactElement } from "react";
 
 export type NavbarPropTypes = {
   config: any;
@@ -25,17 +22,10 @@ export type NavbarItemProps = {
 };
 
 export type NavbarItem = {
-  displayName: String;
-  key: String;
-  type: NavbarItemTypes;
-  listType?: NavbarItemListTypes;
-  listItems?: NavbarItemList;
+  [x: number]: NavbarItemList;
 };
 
-export type NavbarItemType = {
-  config: NavbarItem;
-};
-
-export type NavbarItemPropTypes = {
-  config: Array<NavbarItem>;
+export type NavItemsTypes = {
+  links: Array<ReactElement>;
+  hoveredItem: NavbarItem;
 };
