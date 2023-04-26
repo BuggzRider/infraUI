@@ -1,11 +1,12 @@
 import { css } from "@emotion/react";
-import { menuVisibility } from "styles/keyframes";
 
 export const navItem = (theme: any) => css`
+  ${theme.breakpoints({
+    display: ["none", "none", "flex"],
+  })}
   position: relative;
   height: 100%;
-  width: 100%;
-  display: flex;
+  width: 100px;
   justify-content: center;
   align-items: center;
   label: navItem;

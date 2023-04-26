@@ -11,13 +11,13 @@ import {
   navbarLogoLink,
   navbarPhoneLink,
 } from "./styles";
+import NavbarItemsSidebar from "./NavbarItemsSidebar";
 
 const Navbar = () => {
   const { navbarConfig } = useContext(LayoutContext);
   return (
     <nav css={(theme) => navBarStyles(theme)}>
-      <div></div>
-      <div css={navbarLogoContainer}>
+      <div css={(theme)=>navbarLogoContainer(theme)}>
         <Link css={(theme) => navbarLogoLink(theme)} href="/">
           <Image
             src="/assets/images/logo1.png"
@@ -35,10 +35,11 @@ const Navbar = () => {
         <Image
           src="/icons/searchIcon.svg"
           alt="Search icon"
-          width="55"
-          height="55"
+          width="20"
+          height="20"
           css={(theme) => navbarIcon(theme)}
         />
+        <NavbarItemsSidebar config={navbarConfig.navList}/>
       </div>
     </nav>
   );
