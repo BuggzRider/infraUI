@@ -7,7 +7,7 @@ import SingleMediaRendered from "components/SingleMediaRenderer";
 import { SingleMediaOptions } from "components/SingleMediaRenderer/types";
 import LayoutContext from "context/layoutContext/layout-context";
 import Head from "next/head";
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import {
   homePageCenterImageContainerStyles,
   homePageCenterImageMediaStyles,
@@ -22,6 +22,13 @@ import {
 
 export default function Home() {
   const { homePageConfig } = useContext(LayoutContext);
+  const homeImageContainerRef = useRef<any>();
+  const onSingleMediaButtonsClickHandler = (e: any, key: String) => {
+    if (key === "explore") {
+      console.log(homeImageContainerRef?.current?.clientHeight);
+      window.scrollTo({ top: homeImageContainerRef?.current?.clientHeight, behavior: 'smooth' })
+    }
+  };
   return (
     <div css={(theme) => homePageContainer(theme)}>
       <Head>
@@ -30,7 +37,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <section css={(theme: any) => homePageSectionContainer(theme)}>
+      <section
+        css={(theme: any) => homePageSectionContainer(theme)}
+        ref={homeImageContainerRef}
+      >
         <SingleMediaRendered
           url={homePageConfig?.centerImageObject?.url}
           mediaStyles={(theme: any) => homePageCenterImageMediaStyles(theme)}
@@ -43,6 +53,7 @@ export default function Home() {
           overlayTextConfig={{
             extraContainerStyles: (theme: any) =>
               homePageCenterOverlayTextContainerStyles(theme),
+            onButtonClickHandler: onSingleMediaButtonsClickHandler,
             ...homePageConfig?.centerImageObject?.overlayTextConfig,
           }}
         />

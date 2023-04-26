@@ -41,7 +41,7 @@ export const mediaOverlayContentHeading = (theme: any) => css`
   ${theme.breakpoints({
     fontSize: [theme.fontSizes.xl, theme.fontSizes.xl, theme.fontSizes.xxl],
   })}
-  margin-bottom: ${theme.fontSizes.xl};
+  margin-bottom: 5rem;
   label: mediaOverlayContentHeading;
 `;
 

@@ -11,4 +11,5 @@ export type MediaOverlayTypes = {
   body?: String;
   buttonsArray?: Array<ExtendedButtonPropTypes>;
   extraContainerStyles?: (_theme: any) => Interpolation<Theme>;
+  onButtonClickHandler?: any;
 };

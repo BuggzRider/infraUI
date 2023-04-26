@@ -1,6 +1,5 @@
 import { css } from "@emotion/react";
 import Button from "components/UI/Buttons/Button";
-import { MouseEvent } from "react";
 import {
   mediaOverlayContentBody,
   mediaOverlayContentButton,
@@ -10,16 +9,15 @@ import {
   mediaOverlayContentWrapper,
 } from "./styles";
 import { MediaOverlayTypes } from "./types";
+import { bounce } from "styles/keyframes";
 
 const MediaOverlayContent = ({
   heading,
   body,
   buttonsArray = [],
   extraContainerStyles = () => css``,
+  onButtonClickHandler
 }: MediaOverlayTypes) => {
-  const onButtonClickHandler = (e: MouseEvent) => {
-    console.log(e);
-  };
   return (
     <div
       css={[
@@ -38,11 +36,23 @@ const MediaOverlayContent = ({
                 css={(theme) => mediaOverlayContentButton(theme)}
               >
                 <Button
-                  key={button.key}
-                  isLink={button.isLink}
-                  url={button.url || ""}
-                  onClickHandler={onButtonClickHandler}
-                  label={button.label}
+                  onClickHandler={(e:any)=>onButtonClickHandler(e,button.key)}
+                  extraStyles={() => css`
+                  transition: all 1s ease;
+                  &:before {
+                    content: "";
+                    position: absolute;
+                    top: 39%;
+                    left: -16px;
+                    width: 9px;
+                    height: 9px;
+                    border-top: 1.5px solid white;
+                    border-right: 1.5px solid white;
+                    margin-right: 2px;
+                    animation: ${bounce} 2s infinite;
+                  }
+                  `}
+                  {...button}
                 />
               </div>
             ))}

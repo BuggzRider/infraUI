@@ -33,6 +33,10 @@ export const buttonLink = (theme: any) => css`
   font-family: futura-pt, sans-serif;
   color: ${theme.colors.white};
   text-decoration: none;
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  text-decoration: none;
   label: linkListItemLink;
   cursor: pointer;
   position: relative;
@@ -40,21 +44,6 @@ export const buttonLink = (theme: any) => css`
     fontSize: [theme.fontSizes.h6, theme.fontSizes.h5, theme.fontSizes.h5],
   })}
   font-weight: ${theme.fontWeights.ultraLight};
-  &::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 1px;
-    bottom: 0;
-    left: 0;
-    background-color: ${theme.colors.white};
-    transform-origin: bottom right;
-    transition: transform 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
-  }
-  &:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-  }
+  background: transparent;
   label: buttonLink;
 `;

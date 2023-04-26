@@ -18,6 +18,7 @@ const SingleMediaRenderer = ({
   overlayTextConfig,
   footerTextConfig,
 }: SingleMediaTypes) => {
+  
   return (
     <Fragment>
       <div
@@ -47,7 +48,9 @@ const SingleMediaRenderer = ({
           </video>
         )}
         {!isNil(overlayTextConfig) && !isEmpty(overlayTextConfig) && (
-          <MediaOverlayContent {...overlayTextConfig} />
+          <MediaOverlayContent
+            {...overlayTextConfig}
+          />
         )}
         {shouldShowOverlay && <ImageOverlay />}
       </div>

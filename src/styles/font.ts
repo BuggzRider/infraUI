@@ -1,6 +1,6 @@
 import localFont from "next/font/local";
 
-const fonts = localFont({
+export const fonts = localFont({
   src: [
     {
       path: "./fonts/FuturaCyrillicLight.woff2",
@@ -30,4 +30,12 @@ const fonts = localFont({
   ],
 });
 
-export default fonts;
+export const SilverSouthScript = localFont({
+  src: [
+    {
+      path: "./fonts/SilverSouthScript.woff",
+      weight: "400",
+      style: "normal",
+    }
+  ],
+});

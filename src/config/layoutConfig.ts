@@ -173,11 +173,10 @@ export const layoutConfig = {
       url: "/assets/videos/home.mp4",
       alt: "Home Video",
       overlayTextConfig: {
-        heading: "Story Theme",
-        body: "A powerful theme built for modern commerce.",
+        heading: "Luxury Living",
+        body: "The latest handpicked masterpiece comes along with unforgettable experiences.",
         buttonsArray: [
-          { isLink: false, label: "View Products", key: "products" },
-          { isLink: true, url: "/", label: "Learn More", key: "about" },
+          { isLink: false, url: "/", label: "Explore", key: "explore", showArrowButton: true },
         ],
       },
     },

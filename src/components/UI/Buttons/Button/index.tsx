@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 import Link from "next/link";
-import { button, buttonLink } from "./styles";
+import { buttonLink } from "./styles";
 import { PropTypes } from "./types";
 
 const emptyStyle = () => css``;
@@ -15,13 +15,14 @@ const Button = ({
   return isLink ? (
     <Link
       css={[(theme) => buttonLink(theme), (theme) => extraStyles(theme)]}
-      href={url || ""}
+      href={url || "javascript:void(0)"}
+      onClick={onClickHandler}
     >
       {label}
     </Link>
   ) : (
     <button
-      css={[(theme) => button(theme), (theme) => extraStyles(theme)]}
+      css={[(theme) => buttonLink(theme), (theme) => extraStyles(theme)]}
       onClick={onClickHandler}
     >
       {label}

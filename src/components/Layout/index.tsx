@@ -1,5 +1,5 @@
 import { LayoutContextProvider } from "context/layoutContext";
-import fonts from "styles/font";
+import { fonts } from "styles/font";
 import Footer from "./../Footer";
 import Navbar from "./../Navbar";
 import { layoutContainer, layoutContainerInner } from "./styles";
