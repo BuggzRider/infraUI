@@ -28,9 +28,11 @@ export const fonts = localFont({
       style: "normal",
     },
   ],
+  preload: true,
+  variable: "--base-font"
 });
 
-export const SilverSouthScript = localFont({
+export const SilverSouthScriptFont = localFont({
   src: [
     {
       path: "./fonts/SilverSouthScript.woff",
@@ -38,4 +40,37 @@ export const SilverSouthScript = localFont({
       style: "normal",
     }
   ],
+  variable: "--SilverSouthScriptFont-font"
+});
+
+export const PoppinsFonts = localFont({
+  src: [
+    {
+      path: "./fonts/Poppins-Light.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "./fonts/Poppins-Regular.woff2",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "./fonts/Poppins-Bold.woff2",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--PoppinsFonts-font"
+});
+
+export const CinzelFont = localFont({
+  src: [
+    {
+      path: "./fonts/Cinzel-Regular.woff",
+      weight: "600",
+      style: "normal",
+    }
+  ],
+  variable: "--CinzelFont-font"
 });

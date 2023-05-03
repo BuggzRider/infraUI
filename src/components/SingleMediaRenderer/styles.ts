@@ -6,7 +6,6 @@ export const singleMediaContainer = (theme: any) => css`
   position: relative;
   overflow: hidden;
   border: 4px solid transparent;
-  label: singleMediaContainer;
   & > img {
     transition: all 1s ease-out;
     position: unset !important;

@@ -8,13 +8,12 @@ import {
   cardSliderContainer,
   cardSliderHeaderContainer,
   cardSliderHeaderControlsContainer,
-  cardSliderHeadingContainer,
   imageSlideshowContainer,
   imageSlideshowImage,
 } from "./styles";
 import { CARD_SLIDER_TYPES, CardSliderPropTypes, SlideTypes } from "./types";
 
-const CardSlider = ({ slides, type, heading }: CardSliderPropTypes) => {
+const CardSlider = ({ slides, type }: CardSliderPropTypes) => {
   const [scrollPostition, setScrollPosition] = useState(0);
   const containerRef = useRef<any>(null);
   const slideLeft = () => {
@@ -106,21 +105,18 @@ const CardSlider = ({ slides, type, heading }: CardSliderPropTypes) => {
 
   return (
     <div css={() => cardSliderContainer()}>
-      <div css={() => cardSliderHeaderContainer()}>
-        <div css={(theme) => cardSliderHeadingContainer(theme)}>
-          <p>{heading}</p>
-        </div>
-        {containerRef.current
-          ? containerRef.current?.scrollWidth >
-              containerRef.current?.clientWidth && arrowControlsContainer()
-          : arrowControlsContainer()}
-      </div>
       <div
         ref={containerRef}
         css={(theme) => imageSlideshowContainer(theme)}
         onScroll={onScrollHandler}
       >
         {getCompoenent(slides, type)}
+      </div>
+      <div css={() => cardSliderHeaderContainer()}>
+        {containerRef.current
+          ? containerRef.current?.scrollWidth >
+              containerRef.current?.clientWidth && arrowControlsContainer()
+          : arrowControlsContainer()}
       </div>
     </div>
   );

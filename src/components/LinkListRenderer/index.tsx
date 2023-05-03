@@ -21,7 +21,7 @@ const LinkListRenderer = ({
           linkStyles ? (theme) => linkStyles(theme) : css``,
         ]}
         href={config.url}
-        data-automation={config.key}
+        data-id={config.key}
         {...props}
       >
         {config.displayName}

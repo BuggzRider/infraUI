@@ -16,6 +16,7 @@ export const BASE_COLORS = {
   border: "#eeeff1",
   footerBG: "#f2f5fa",
   footerText: "#3a4b55",
+  hoverColor: "#c9a43d",
 
   // Black/White
   white: "#FFF",

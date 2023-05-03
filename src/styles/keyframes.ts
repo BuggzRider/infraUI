@@ -1,4 +1,5 @@
 import { keyframes } from "@emotion/react";
+import { defaultTheme } from "./theme";
 
 export const textUnderline = keyframes`
 from {border-bottom: none;}
@@ -30,4 +31,35 @@ export const bounce = keyframes`
         -webkit-transform: translateY(-15px) rotate(135deg);
         transform: translateY(-15px) rotate(135deg)
     }
-`
+`;
+
+export const listOpening = keyframes`
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+`;
+
+export const flash = keyframes`
+    0% {
+        color: white;
+    }
+
+    50% {
+        color: ${defaultTheme.colors.hoverColor};
+    }
+
+    100% {
+        color: white;
+    }
+`;
+
+
+export const shine = keyframes`
+    100% {
+        left: 125%;
+    }
+`;

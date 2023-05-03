@@ -11,6 +11,7 @@ export type SingleMediaTypes = {
   shouldShowOverlay: Boolean;
   overlayTextConfig?: MediaOverlayTypes | any;
   footerTextConfig?: MediaFooterTypes | any;
+  fill?: Boolean;
 };
 
 export enum SingleMediaOptions {

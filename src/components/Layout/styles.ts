@@ -8,6 +8,7 @@ export const layoutContainer = (theme: any) => css`
   align-items: center;
   justify-content: space-between;
   label: layoutContainer;
+  font-family: var(--PoppinsFonts-font);
   ${theme.breakpoints({
     fontSize: [theme.fontSizes.body, theme.fontSizes.h5, theme.fontSizes.h5],
   })}

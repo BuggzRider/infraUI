@@ -15,7 +15,7 @@ export default function App({ Component, pageProps }: AppProps) {
             line-height: ${defaultTheme.lineHeights.body};
             color: ${defaultTheme.colors.base_text};
             font-weight: ${defaultTheme.fontWeights.normal};
-            font-family: futura-pt, sans-serif;
+            font-family: __PoppinsFonts_9cde38, futura-pt, sans-serif;
             min-height: 100%;
           }
           body > div {

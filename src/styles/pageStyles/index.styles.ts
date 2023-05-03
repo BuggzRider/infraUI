@@ -34,8 +34,7 @@ export const homePageCenterImageContainerStyles = (theme: any) => css`
 export const homePageCenterOverlayTextContainerStyles = (theme: any) => css`
   align-items: flex-end;
   &  h1 {
-    font-family: "__SilverSouthScript_9041b0",
-      "__SilverSouthScript_Fallback_9041b0";
+    font-family: var(--SilverSouthScriptFont-font);
     font-weight: 400;
     font-style: normal;
     font-size:100px;

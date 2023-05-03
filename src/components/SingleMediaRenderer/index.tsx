@@ -17,6 +17,7 @@ const SingleMediaRenderer = ({
   shouldShowOverlay,
   overlayTextConfig,
   footerTextConfig,
+  fill=true
 }: SingleMediaTypes) => {
   
   return (
@@ -31,7 +32,7 @@ const SingleMediaRenderer = ({
           <NextImageWithFallback
             src={url}
             alt={alt}
-            fill
+            fill={fill}
             priority
             css={(theme: Interpolation<Theme>) => mediaStyles(theme)}
             fallback="/assets/images/fallback_landscape.png"

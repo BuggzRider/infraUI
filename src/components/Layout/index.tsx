@@ -1,5 +1,10 @@
 import { LayoutContextProvider } from "context/layoutContext";
-import { fonts } from "styles/font";
+import {
+  CinzelFont,
+  PoppinsFonts,
+  SilverSouthScriptFont,
+  fonts,
+} from "styles/font";
 import Footer from "./../Footer";
 import Navbar from "./../Navbar";
 import { layoutContainer, layoutContainerInner } from "./styles";
@@ -9,7 +14,7 @@ const Layout = ({ children }: PropTypes) => {
   return (
     <LayoutContextProvider>
       <div
-        className={`${fonts.className}`}
+        className={`${fonts.className} ${SilverSouthScriptFont.variable} ${PoppinsFonts.variable} ${CinzelFont.variable}`}
         css={(theme) => layoutContainer(theme)}
       >
         <div css={(theme) => layoutContainerInner(theme)}>
