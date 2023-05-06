@@ -9,7 +9,7 @@ export const navBarStyles = (theme: any) => css`
   color: ${theme.colors.white};
   color: white;
   position: absolute;
-  z-index: ${theme.zIndexs[5]};
+  z-index: ${theme.zIndexs[3]};
   ${theme.breakpoints({
     height: ["100px", "100px", "150px"],
     padding: ["0 1rem", "0 1rem", "0 5rem"]

@@ -1,41 +1,41 @@
 import { css } from "@emotion/react";
 
-export const sideNavContainer = (theme: any) => css`
+export const sidebarContainer = (theme: any) => css`
   ${theme.breakpoints({
     display: ["flex", "flex", "none"],
   })}
-  label: sideNavContainer;
+  label: sidebarContainer;
 `;
 
-export const sideNavListWrapper = css`
+export const sidebarListWrapper = (theme: any) => css`
   height: 100vh;
   position: fixed;
   top: 0;
   right: 0;
-  z-index: 1500;
+  z-index: 5500;
   opacity: 0;
   width: 0;
   background-color: #000;
   transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  label: sideNavListWrapper;
+  label: sidebarListWrapper;
 `;
 
-export const sideNavListContainer = (theme: any) => css`
+export const sidebarChildContainer = (theme: any) => css`
   display: flex;
   width: 100%;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  label: sideNavListContainer;
+  label: sidebarListContainer;
 `;
 
-export const sideNavListContainerOpen = (theme: any) => css`
+export const sidebarListContainerOpen = (theme: any) => css`
   opacity: 1;
   width: 100%;
-  label: sideNavListContainerOpen;
+  label: sidebarListContainerOpen;
 `;
 
-export const sideNavListCloseButtonContainer = css`
+export const sidebarListCloseButtonContainer = (theme: any) => css`
   display: flex;
   width: 100%;
   justify-content: flex-end;
@@ -43,5 +43,5 @@ export const sideNavListCloseButtonContainer = css`
   & > div {
     margin: 1rem;
   }
-  label: sideNavListCloseButtonContainer;
+  label: sidebarListCloseButtonContainer;
 `;

@@ -1,9 +1,10 @@
 import { css } from "@emotion/react";
-import { CARD_SLIDER_TYPES } from "./types";
 
 export const cardSliderContainer = () => css`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 1rem 0;
   label: cardSliderContainer;
 `;
@@ -56,7 +57,10 @@ export const imageSlideshowContainer = (theme: any) => css`
   }
 `;
 
-export const imageSlideshowImage = (theme: any, type: String) => css`
-  width: ${type === CARD_SLIDER_TYPES.CIRCLE_IMAGE ? "200px" : "288px"};
-  label: largeImageContainer;
+export const imageSlideshowImage = (theme: any) => css`
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  label: imageSlideshowImage;
 `;

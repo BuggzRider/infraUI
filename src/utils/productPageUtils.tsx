@@ -5,6 +5,17 @@ import TabComponent from "components/TabComponent";
 import Table from "components/Table";
 import { productPageTableColumns } from "constants/productPageConstants";
 import ProductAmenities from "components/ProductAmenities";
+import {
+  productFloorTabComponentBodyContainer,
+  productFloorTabComponentContainer,
+  productFloorTabComponentHeadingContainer,
+  productFloorTabHeadingElementActive,
+  productFloorTabHeadingElementContainer,
+  productFloorTabImageComponent,
+  productFloorTabImageConatainer,
+  productTableChildContainer,
+} from "styles/pageStyles/product.styles";
+import HeadingWrapper from "components/HeadingWrapper";
 export const processTabSection = (productDetailsObject: any) => {
   // Processing OverviewTab
   const floorTabComponentArray = productDetailsObject.floorPlan.map((item) => ({
@@ -17,10 +28,8 @@ export const processTabSection = (productDetailsObject: any) => {
     body: (
       <SingleMediaRendered
         url={item?.imageSrc}
-        // mediaStyles={(theme: any) => productCenterImageMediaStyles(theme)}
-        // containerStyles={(theme: any) =>
-        //   productCenterImageContainerStyles(theme)
-        // }
+        mediaStyles={(theme: any) => productFloorTabImageComponent(theme)}
+        containerStyles={(theme: any) => productFloorTabImageConatainer(theme)}
         alt={item.floorName}
         type={SingleMediaOptions.IMAGE}
         shouldShowOverlay={true}
@@ -42,15 +51,38 @@ export const processTabSection = (productDetailsObject: any) => {
     },
     {
       label: "FLOOR PLANS",
-      body: <TabComponent tabs={floorTabComponentArray} />,
+      body: (
+        <HeadingWrapper
+          heading={`${productDetailsObject.productName} - FLOOR PLANS`}
+        >
+          <TabComponent
+            tabs={floorTabComponentArray}
+            extraStyles={{
+              tabComponentBodyContainer: productFloorTabComponentBodyContainer,
+              tabComponentContainer: productFloorTabComponentContainer,
+              tabComponentHeadingContainer:
+                productFloorTabComponentHeadingContainer,
+              tabHeadingElementActive: productFloorTabHeadingElementActive,
+              tabHeadingElementContainer:
+                productFloorTabHeadingElementContainer,
+            }}
+          />
+        </HeadingWrapper>
+      ),
     },
     {
       label: "AREA & PRICING",
       body: (
-        <Table
-          columns={productPageTableColumns}
-          data={productDetailsObject.areaPricing}
-        />
+        <HeadingWrapper
+          heading={`${productDetailsObject.productName} - AREA & PRICING`}
+        >
+          <div css={(theme) => productTableChildContainer(theme)}>
+          <Table
+            columns={productPageTableColumns}
+            data={productDetailsObject.areaPricing}
+          />
+          </div>
+        </HeadingWrapper>
       ),
     },
     {

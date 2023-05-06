@@ -16,27 +16,31 @@ export const productPageTableColumns = [
 
 export const ProductPageAmentities = {
   [AmenityKeys.CCTV_SECURITY]: {
-    imageSrc: "/icons/cctvSecurity.png",
-    title: "CCTV Security",
+    src: "/icons/cctvSecurity.png",
+    footerTextConfig: { heading: "CCTV Security" },
   },
   [AmenityKeys.BASEMENT_PARKING]: {
-    imageSrc: "/icons/basementParking.png",
-    accessor: "Basement parking",
+    src: "/icons/basementParking.png",
+    footerTextConfig: { heading: "Basement parking" },
   },
   [AmenityKeys.SWIMMING_POOL]: {
-    imageSrc: "/icons/swimmingPool.png",
+    src: "/icons/swimmingPool.png",
     accessor: "Swimming Pool",
+    footerTextConfig: { heading: "Swimming Pool" },
   },
   [AmenityKeys.CAFE_LOUNGE]: {
-    imageSrc: "/icons/cafeLoung.png",
+    src: "/icons/cafeLoung.png",
     title: "Cafe Lounge",
+    footerTextConfig: { heading: "Cafe Lounge" },
   },
   [AmenityKeys.AIR_CONDITIONING]: {
-    imageSrc: "/icons/ac.png",
+    src: "/icons/ac.png",
     accessor: "Air conditioning",
+    footerTextConfig: { heading: "Air conditioning" },
   },
   [AmenityKeys.GYM]: {
-    imageSrc: "/icons/gym.png",
+    src: "/icons/gym.png",
     accessor: "Gym",
+    footerTextConfig: { heading: "Gym" },
   },
 };

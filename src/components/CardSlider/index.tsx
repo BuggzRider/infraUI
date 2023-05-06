@@ -13,7 +13,7 @@ import {
 } from "./styles";
 import { CARD_SLIDER_TYPES, CardSliderPropTypes, SlideTypes } from "./types";
 
-const CardSlider = ({ slides, type }: CardSliderPropTypes) => {
+const CardSlider = ({ slides, type, extraStyles }: CardSliderPropTypes) => {
   const [scrollPostition, setScrollPosition] = useState(0);
   const containerRef = useRef<any>(null);
   const slideLeft = () => {
@@ -35,7 +35,7 @@ const CardSlider = ({ slides, type }: CardSliderPropTypes) => {
     <div css={(theme) => cardSliderHeaderControlsContainer(theme)}>
       <ArrowButton
         onClickHandler={slideLeft}
-        extraStyles={() => css``}
+        extraStyles={(theme) => extraStyles?.commonArrowStyles(theme) || css``}
         label="previous"
         type={ARROW_BUTTON_TYPES.LEFT}
         disabled={scrollPostition === 0}
@@ -61,33 +61,20 @@ const CardSlider = ({ slides, type }: CardSliderPropTypes) => {
     type: CARD_SLIDER_TYPES
   ) => {
     switch (type) {
-      case CARD_SLIDER_TYPES.CIRCLE_IMAGE:
-      case CARD_SLIDER_TYPES.SQUARE_IMAGE:
+      case CARD_SLIDER_TYPES.IMAGE:
         return slides.map((slide) => (
           <div
             key={slide.key}
-            css={(theme) => imageSlideshowImage(theme, type)}
+            css={(theme) => imageSlideshowImage(theme)}
           >
             <SingleMediaRendered
               key={slide.key}
               url={slide.src}
-              mediaStyles={() => css`
-                object-fit: cover;
-              `}
-              containerStyles={() =>
-                type === CARD_SLIDER_TYPES.CIRCLE_IMAGE
-                  ? css`
-                      width: 100%;
-                      height: 100%;
-                      max-height: 200px;
-                      clip-path: circle(50%);
-                      border-radius: 50% !important;
-                      overflow: hidden;
-                    `
-                  : css`
-                      width: 100%;
-                      height: 70%;
-                    `
+              mediaStyles={(theme) =>
+                extraStyles?.cardSliderImage(theme) || css``
+              }
+              containerStyles={(theme) =>
+                extraStyles?.cardSliderImageContainer(theme) || css``
               }
               alt={slide.alt}
               type={SingleMediaOptions.IMAGE}

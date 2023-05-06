@@ -3,7 +3,7 @@ import { css } from "@emotion/react";
 
 export const productOverviewContainer = (theme: any) => css`
   width: 100%;
-  height: 30vh;
+  height: 40vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,7 +38,7 @@ export const productOverviewTextContainerStyles = (theme: any) => css`
   align-items: flex-start;
   justify-content: center;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 700;
   label: productOverviewTextContainerStyles;
 `;
 

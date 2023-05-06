@@ -57,9 +57,17 @@ export const flash = keyframes`
     }
 `;
 
-
 export const shine = keyframes`
     100% {
         left: 125%;
     }
+`;
+
+export const progress = (value: any) => keyframes`
+    0% { 
+        --percentage: 0;
+     }
+    100% {
+         --percentage: ${value};
+         }
 `;

@@ -10,10 +10,6 @@ const TabComponent = ({ tabs, extraStyles }: TabComponentPropTypes) => {
         css={(theme) =>
           extraStyles?.tabComponentHeadingContainer(theme) || css``
         }
-        onClick={(e: any) =>
-          Number(e.target.dataset.id) < tabs.length &&
-          setSelectedIndex(Number(e.target.dataset.id))
-        }
       >
         {tabs.map((tab, index) => (
           <li
@@ -24,7 +20,9 @@ const TabComponent = ({ tabs, extraStyles }: TabComponentPropTypes) => {
               extraStyles?.tabHeadingElementContainer(theme) || css``,
             ]}
             key={index}
-            data-id={index}
+            onClick={() =>
+              setSelectedIndex(index)
+            }
           >
             {tab.label}
           </li>

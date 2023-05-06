@@ -2,36 +2,29 @@ import BurgerIconButton from "components/UI/Buttons/BurgerIconButton";
 import NavbarItemSidebar from "../NavbarItemSidebar";
 import { NavbarItemsPropTypes } from "../types";
 import {
-  sideNavListWrapper,
   sideNavListContainerOpen,
   sideNavListContainer,
-  sideNavListCloseButtonContainer,
   sideNavContainer,
 } from "./styles";
 import { useState } from "react";
-import { css } from "@emotion/react";
-import CloseButton from "components/UI/Buttons/CloseButton";
+import Sidebar from "components/UI/Sidebar";
 
 const NavbarItemsSidebar = ({ config = [] }: NavbarItemsPropTypes) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   return (
-    <div css={(theme)=>sideNavContainer(theme)}>
+    <div css={(theme) => sideNavContainer(theme)}>
       <BurgerIconButton onClickhandler={() => setIsSidebarOpen(true)} />
-      <div
-        css={[
-          sideNavListWrapper,
-          isSidebarOpen ? sideNavListContainerOpen : css``,
-        ]}
+      <Sidebar
+        isSidebarOpen={isSidebarOpen}
+        setIsSidebarOpen={setIsSidebarOpen}
+        extraStyles={{sidebarListContainerOpen:sideNavListContainerOpen }}
       >
-        <div css={sideNavListCloseButtonContainer}>
-          <CloseButton onClickhandler={() => setIsSidebarOpen(false)} />
-        </div>
         <div css={(theme) => sideNavListContainer(theme)}>
           {config.map((item) => (
             <NavbarItemSidebar key={item.key} config={item} />
           ))}
         </div>
-      </div>
+      </Sidebar>
     </div>
   );
 };

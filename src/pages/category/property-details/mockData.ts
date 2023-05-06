@@ -41,7 +41,7 @@ export const productMock = {
     "GYM",
   ],
   areaPricing: [
-    { propertyType: "2 BHK Luxury Homes", area: "639", minPricing: "2.35 Cr." },
+    { propertyType: "2 BHK Luxury Homes", minPricing: "2.35 Cr." },
   ],
   emi: {
     loanAmt: "50000",

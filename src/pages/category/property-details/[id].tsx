@@ -11,17 +11,24 @@ import {
   productTabComponentHeadingContainer,
   productTabHeadingElementActive,
   productTabHeadingElementContainer,
+  productSidebarEmiListContainerOpen,
+  productSidebarEmiWrapperContainer,
 } from "../../../styles/pageStyles/product.styles";
 import { productMock } from "./mockData";
 import { OverlayTypes } from "components/MediaContent/MediaOverlayContent/types";
 import { mediaOverlayExtraStyles } from "components/MediaContent/MediaOverlayContent/styles";
 import TabComponent from "components/TabComponent";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { processTabSection } from "utils/productPageUtils";
+import Sidebar from "components/UI/Sidebar";
+import EmiDisplayComponent from "components/EmiDisplayComponent";
 
 export default function Product() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const tabsData = useMemo(() => processTabSection(productMock), []);
-  const onEmiClickHandler = () => {};
+  const onEmiClickHandler = () => {
+    setIsSidebarOpen(true);
+  };
   const onClickDownloadBrochure = () => {};
   return (
     <div css={(theme) => productContainer(theme)}>
@@ -58,14 +65,28 @@ export default function Product() {
         />
       </section>
       <section css={(theme: any) => productSectionContainer(theme)}>
-        <TabComponent tabs={tabsData} extraStyles={{
-            tabComponentBodyContainer:productTabComponentBodyContainer,
-            tabComponentContainer:productTabComponentContainer,
-            tabComponentHeadingContainer:productTabComponentHeadingContainer,
-            tabHeadingElementActive:productTabHeadingElementActive,
-            tabHeadingElementContainer:productTabHeadingElementContainer,
-          }}/>
+        <TabComponent
+          tabs={tabsData}
+          extraStyles={{
+            tabComponentBodyContainer: productTabComponentBodyContainer,
+            tabComponentContainer: productTabComponentContainer,
+            tabComponentHeadingContainer: productTabComponentHeadingContainer,
+            tabHeadingElementActive: productTabHeadingElementActive,
+            tabHeadingElementContainer: productTabHeadingElementContainer,
+          }}
+        />
       </section>
+      <Sidebar
+        isSidebarOpen={isSidebarOpen}
+        setIsSidebarOpen={setIsSidebarOpen}
+        extraStyles={{
+          sidebarListContainerOpen: productSidebarEmiListContainerOpen,
+          sidebarListWrapperExtraStyles: productSidebarEmiWrapperContainer,
+        }}
+        closeButtonColor={"black"}
+      >
+        <EmiDisplayComponent emiData={productMock?.emi} />
+      </Sidebar>
     </div>
   );
 }

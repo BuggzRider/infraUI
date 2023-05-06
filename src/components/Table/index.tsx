@@ -2,18 +2,22 @@
 import { TableOptions, useTable } from "react-table";
 import { useMemo } from "react";
 import { TablePropTypes } from "./types";
+import { table } from "./styles";
 
 const Table = ({ columns, data }: TablePropTypes) => {
   const tableData = useMemo(() => data, [data]);
   const tableColumns = useMemo(() => columns, [columns]);
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    useTable({ tableColumns, tableData } as unknown as TableOptions<{}>);
+    useTable({
+      columns: tableColumns,
+      data: tableData,
+    } as unknown as TableOptions<{}>);
 
   return (
     <div className="App">
       <div className="container">
-        <table {...getTableProps()}>
+        <table {...getTableProps()} css={(theme) => table(theme)}>
           <thead>
             {headerGroups.map((headerGroup: any) => (
               <tr {...headerGroup.getHeaderGroupProps()}>
@@ -31,7 +35,10 @@ const Table = ({ columns, data }: TablePropTypes) => {
               return (
                 <tr {...row.getRowProps()}>
                   {row.cells.map((cell: any) => (
-                    <td {...cell.getCellProps()}> {cell.render("Cell")} </td>
+                    <td {...cell.getCellProps()}>
+                      {" "}
+                      {cell.value ? cell.render("Cell") : "--"}{" "}
+                    </td>
                   ))}
                 </tr>
               );

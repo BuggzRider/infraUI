@@ -1,16 +1,15 @@
 import { css } from "@emotion/react";
 
-export const closeButtonStyles = (theme: any) => css`
+export const closeButtonStyles = (theme: any, closeButtonColor: string) => css`
   position: relative;
   margin-top: 1rem;
   background-color: transparent;
-
   transform: rotate(135deg);
   &,
   &::after {
     width: 2rem;
     height: 2px;
-    background-color: white;
+    background-color: ${closeButtonColor ? closeButtonColor : "white"};
     display: inline-block;
   }
   &::after {

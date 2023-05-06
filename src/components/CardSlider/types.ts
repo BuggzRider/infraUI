@@ -1,9 +1,9 @@
+import { SerializedStyles } from "@emotion/react";
 import { MediaFooterTypes } from "components/MediaContent/MediaFooterContent/types";
 import { Key } from "react";
 
 export enum CARD_SLIDER_TYPES {
-  SQUARE_IMAGE = "SQUARE_IMAGE",
-  CIRCLE_IMAGE = "CIRCLE_IMAGE",
+  IMAGE = "IMAGE",
   TEXT_CARD = "TEXT_CARD",
 }
 export type SlideTypes = {
@@ -14,7 +14,14 @@ export type SlideTypes = {
   key: Key;
 };
 
+export type ExtraStylesTypes = {
+  cardSliderImageContainer: (theme: any) => SerializedStyles;
+  cardSliderImage: (theme: any) => SerializedStyles;
+  commonArrowStyles: (theme: any) => SerializedStyles;
+};
+
 export type CardSliderPropTypes = {
   slides: Array<SlideTypes>;
   type: CARD_SLIDER_TYPES;
+  extraStyles?: ExtraStylesTypes;
 };

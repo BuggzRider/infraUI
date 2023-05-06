@@ -31,6 +31,7 @@ export const burgerButtonStyles = (theme: any) => css`
 
 export const burgerButtonContainer = (theme: any) => css`
   cursor: pointer;
+  margin-right: 30px;
   transition: all 0.5s;
   label: burgerButtonContainer;
 `;
